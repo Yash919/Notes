@@ -1,0 +1,285 @@
+Linux Commands:  
+
+sudo su -     ->   Change from ec2-user to root-user 
+
+ls -a or  ls /  or ls -ltr / ls ltra   -> show filesystem hierarchy
+
+date ->   Show date 
+
+cal -> To see calendar 
+
+Uptime -> Show current uptime
+
+Whoami -> what user you have logged in
+
+Finger / who / username / w ->   all are used to see user information
+
+Man command ->  shows manual of command (Ex man who, man date)
+
+
+View Files
+
+Ls -> directory listing
+
+Cat filename -> view file content
+
+Less -> view a file page by page
+
+More -> output the contents of file
+
+Head -> output the first 10 lines of file  { if you want to see more than 10 lines. -> head -30 filename }
+
+Tail  ->  output the last 10 lines of file  { if you want to see more than 10 lines -> tail -20 filename }
+
+Page -> display file page by page  ( Need to download )
+
+
+Create / Delete file
+
+
+Touch -> Create 0 byte file 
+
+Cat > filename -> create new file and allow to write (Overwrite)       
+cat >> filename (appended.. previous data is not deleted)
+
+Nano -> create a flle if not exist.  (Not Downloaded)
+
+Vi -> create a flle if not exist. 
+
+Rm -> remove a file  ( This will ask confirmation ) { rm -f filename -> Delete forcefully without confirmation}
+
+Mkdir -> create a directory
+
+Rmdir -> remove empty directory. (Note If you want to remove directory  which is not empty -> rm -f -r {recursively} or rm -rf ) 
+
+Rm -rf -> remove a directory    ( rm -rf * delete all directories )
+
+Ls -l ->  {  further extension of this command ls -l  -t -r  -> ls means list, -l means long list, -t means sort based on time, -r reverse sort } you can combined this command like “ls -ltr”
+
+Tree -> show directories in tree format. (If not present download it using yum command )
+
+ 
+
+Managing Files / Directories
+
+
+Cp -> Copy (Ex cp sourcefile destination file {copy source file content to destination file}) (Note* To copy directories use command -r example cp -r directory1 directory2)
+
+Mv  -> Move ( Ex mv filename destination ) (Note* To rename the file you can use command mv filename filename { you should be in same directory})  
+
+Find  -> find file ( find / -option filename ) { -option can be name user group } 
+
+Grep -> search for pattern in file (-I to ignore case sensitive ) use pipe symbol “|” {to find file ex ls -l | grep filename}
+
+Cd -> switch between directories
+
+Diff -> find content differences in 2 file
+
+Sed -> search and replace particular pattern (Ex -> sed ’s/oldtext/newtext/‘ file1      It doesn’t change in original file) **use command -i to change in original file  
+(Ex -> sed ’s/oldtext/newtext/g‘  To change every old text wherever it is present means if it present in substring there also change)
+(Ex -> sed ’s/oldtext/newtext/ig‘  To change every old text with no case sensitive)
+
+**To see specific lines -> sed -n ‘5,10p’ (will show line from 5 to 10 )
+**To delete specific lines -> sed ‘5,10p’ (delete line from 5 to 10)
+
+Chmod -> change file permissions
+
+**Chown -> change ownership of file.  (** Only root/superuser can change the ownership) {Ex -> chown mark:mark filename}
+
+File -> show what kind of file it is.
+
+ 
+User Management  
+
+
+(Creating a user in linux)
+
+Useradd <option> <username> 
+
+UserMod -G grouptoadd username  To create password for user
+
+Passwd username (than enter)
+
+
+
+File Permission 
+
+
+Rwx - rw - r  - -        ->   ( file type , owner permission, primary group permission, others permissions )   
+
+(We can change permission) 
+
+Symbolic method 
+Ex -> chmod u=rwx,g=rw,o=r file_name      (+ to add permission, - to remove permission 
+ 
+Absolute method
+Read - 4 Write -2  Execute - 1 (Ex -> chmod 764 filename) 
+
+
+System Management
+
+
+History -> list all commands executed by a user
+
+Free -> free memory of a server
+
+/proc/meminfo -> Displays memory information  ( cat /proc/meminfo )
+
+/proc/cpuinfo -> Display Cpu information ( cat /proc/cpuinfo )
+
+Uname -a -> show kernel information 
+
+Du -> show directory space usage
+
+Whereis -> show possible locations of app (Ex: Whereis ls)
+
+Which -> show which app will be run by default
+
+
+Software Management  
+
+
+(**Note Yum commands need to run under root user)
+
+Yum install <package name>
+
+Yum remove <package name>
+
+Yum update <package name>
+
+Yum info <package name>
+
+Yum update <package name>
+
+Yum list available -> ( check on the repository which local system is connected with)
+
+Yum list installed  -> ( check on local system )
+
+
+Networking
+
+
+Hostname -> ( we can change name via editing /etc/hostname ).  (**Note “Hostname name” will change the name directly) 
+
+Ping -> availability of destination server over the network.
+
+Wget -> download packages/softwares onto linux system.
+
+Ifconfig -> lists ip addresses of the server (Command not found)
+
+Telnet -> connect to remote host / check port availability status (Ex -> telnet localhost 22{port number} ) (Telnet need to download )
+
+Curl -> access the application as from browser 
+
+Netstat -tulpn -> (which ports our application has used) ( Not installed ) 
+
+*** init 6 -> (To restart the session) ( This will shutdown the connection ) 
+
+
+Services
+
+
+You can use systemctl command also like. (Systemctl stop https)
+
+**(You can start/stop via root user or you need password )
+
+For 80 the file should be present near {cd /var/www/html} if not present it will show default page 
+
+Service <name of the service> status ->  To check status of service
+
+Service <name of the service> start -> To start the service
+
+Service <name of the service> stop -> To stop the service  Service <name of the service> reload -> To reload the service
+
+Service <name of the service> restart -> To restart the service
+
+Chkconfig —list   -> To check availability of service
+
+Chkconfig <service> on -> To make the service available after restart 
+
+Chkconfig <service> off -> To make service unavailable after restart  
+
+
+Process Management 
+
+
+Ps -ef. -> list all the services which are present
+
+Kill process_id -> kill the process.   (Kill -9 process_id) “-9 -> sure kill” 
+
+Sleep 500 -> To stop the process you can use (ctrl + z).     Sleep 500 &  -> “&” symbol can be used to run the process in background or you can do like { bg %1 } first run command job to see if there is any process which are stopped in background  and if there is than give the number which present like bg %2
+
+To make this background process run in foreground than run the command ( fg %1) process number which can be seen via command jobs.
+
+Top -> display top cpu utilised processes.
+
+
+Archiving files and directories
+
+
+**Note gzip zip not worked on directories.  Tar should be used.
+
+Gzip -> create compressed file (Ex -> gzip filename) 
+
+Zip -> (Ex zip file1.zip file1).  -> zip name_of_zip which_file_you_need_to_zip)
+
+Gunzip -> unzip a file
+
+Tar -> extract tar file (worked on directories) Ex -> tar -cvf dir1.tar  dir1    { c-> create v-> verbose f-> file } 
+
+
+# To untar the directory
+Tar -xvf dir1.tar   {x-> extract } 
+
+
+***Note ( you can zip the tar files )
+
+To extract .tar.gz (which are firstly tar than zip ) you can use command
+Tar -xvzf filename  
+
+
+Crontab can be used to run recurring tasks or commands to run automatically at specified intervals.
+
+Crontab -e  -> To edit
+
+Crontab -l -> To see all jobs which are going to run 
+
+**To run a job every minute you can do  Ex: 
+-> * * * * * echo “6” >> /tmp/file5 (symbol is star)  
+ Link Files 
+
+2 types -> soft link , hard link
+
+Soft Link -> shortcut file (like we create shortcut on our desktop), space optimized, If original file deleted link is broken and data is lost., {for soft link you will see L in permissions.}
+
+Command: ln -s sourcefile destinationfile
+
+Hard Link -> backup file () size of both file is same, If original file deleted than also link will contain data
+
+Command: ln sourcefile destinationfile
+
+**Note To run the shell script “.sh”  you should give permission for execution. 
+
+shell script  Video- 38
+
+
+Copy File between servers
+
+
+Windows to linux
+	mobaxterm or winscp
+Linux to Linux 	
+  SCP secure-copy -> Ex ( scp source_file_name username@destination_host:destination_folder  	
+
+Copy one server to another server -> scp file1 root@10.20.30.40:/tmp
+Copy remote system to local system -> scp root@10.20.30.40:/tmp /home/ec2-user
+	
+	( To copy directories you need to add command -r {recursive} 
+
+ 
+Ssh key based authentication
+
+
+Ssh-keygen
+
+Ssh-copy-id
