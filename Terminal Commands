@@ -1,0 +1,79 @@
+Terminal Learn
+
+1: say.  -> Mac will say what you will write after the “say” 
+
+2: To find wifi password
+security find-generic-password -wa “wifi-name”
+
+3: To copy this password
+security find-generic-password -wa “wifi-name”  | pbcopy
+
+4: Caffeinate -> To stay awake the Mac
+		“ Control c to stop “
+
+5: command + control + shift + 4  to copy/screenshot specific without saving in desktop
+
+6: cd + space to go home
+
+7: ls will show all the files
+
+8: pwd -> current directory 
+
+9: whoami. ->  show admin name
+
+10: mv -> move file from one place to another [ Example -:  mv /Users/yash.mehta/Desktop/“filename”  /Users/yash.mehta/Downloads
+
+11: cp-> to copy file 
+
+12: man nano. -> Learn this
+
+13: open “filename” to open -> (Note you need to be in that folder structure or it will show the file does not exist
+
+14: ping -> (To know is your site is up or not) (Note it will run infinite times hence control+c to stop)
+
+15: ifconfig en0 -> (To know your ip)
+
+16: ifconfig en0 | grep inet | awk '{ print $2 }' -> (More Specified way to look ip)
+
+17: traceroute “Url” -> (Used for troubleshooting also you can see every router you hit)
+
+18: ps -> (It will show processes id’s) -> to see all ( ps -ax)
+
+19: Kill -> (will kill the process id) 
+
+20 you can simply switch terminals by writing there name (ex bash, zsh)
+
+21: uptime -> (To see how much time your Mac is up)
+
+22: diff -> (To see the file difference)
+
+23: cmatrix.  -> (To install brew install cmatrix)
+
+24: asciiquarium -> (To install brew install asciiquarium)
+
+25: Brew install satay/tui/tetris  -> (GitHub needed) 
+
+26:  python3 -m http.server  -> (To send files to friend via localhost:8000)
+
+27: shutdown [-r (restart)/-h(shutdown)] now
+
+28: ls -l -> (To see the permissions of that file) 
+
+29: Ctrl +n.  (New terminal open)
+
+30: shift+4 -> move to the end of the line
+
+31: shift+6 -> move to the starting of the  line
+
+32: :set number -> To see the number
+
+33: :-number (i.e. 10) -> To move upper  that line  [Ex: you are in 25 line move to 20 line  :-5] 
+
+34: :+number -> To move cursor lower to line [Ex: you are in 25 line move to 30 line  :+5] 
+
+35: ctrl (symbol ^) + a -> When you want to move to first word.  { In windows “Home” key will work }
+
+36: ctrl (symbol ^) + e -> When you want to move to last word.  { In windows “End” key will work }
+
+37: To delete specific lines via {vi}  -> shift+v (To show content into visual mode)  j -> to select content downward k-> to select content upward…. After selecting the content press “d” to delete the content.
+
