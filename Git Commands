@@ -31,6 +31,10 @@ git reset --hard HEAD~3 -> This command resets the current branch to the state t
 
 git merge <source_branch>  -> you can merge changes from another branch into it.
 
-git log -> view the commit history  git cherry-pick <commit_hash> ->   git bisect start , git bisect good , git bisect bad
+git log -> view the commit history  
+
+git cherry-pick <commit_hash> ->   
+
+git bisect start , git bisect good , git bisect bad
 
 Stash want to add -> push,pull method
