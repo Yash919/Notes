@@ -1,0 +1,27 @@
+Git Learning 
+
+Better way to checkout  -> git checkout -b sandbox-ymehta-AP-609 --track origin/integration
+
+Touch -> touch newfile.txt
+
+git init -> To initializes a new Git repository in your current working directory.  git add .  -> To adds all changes which are modified
+
+git  add file1 file2  -> To add specific files in commit ( not the all changes *)
+
+git commit -m “Message Text”  -> basic command commit changes in Git.
+
+git pull -> It will fetch the latest changes from the remote repository and merge them into your current branch.  git pull <remote> <branch> -> Example -> git pull origin main  git pull —rebase -> This will fetch the changes and then reapply your local commits on top of the fetched changes, instead of creating a merge commit. 
+git rm <file> -> This command removes a file from the Git repository.
+
+git checkout <branch-name> -> switch branch
+
+git checkout -b <new-branch-name> -> create new branch.    git branch -> To see all branches in local 
+git branch -D 
+
+git reset —hard -> command moves the HEAD (current branch) to a specified commit and sets the working directory and staging area to match that commit.
+
+git reset --hard HEAD~3 -> This command resets the current branch to the state three commits ago.  git merge <source_branch>  -> you can merge changes from another branch into it.
+
+git log -> view the commit history  git cherry-pick <commit_hash> ->   git bisect start , git bisect good , git bisect bad
+
+Stash want to add -> push,pull method
