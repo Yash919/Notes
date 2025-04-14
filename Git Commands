@@ -37,4 +37,10 @@ git cherry-pick <commit_hash> ->   
 
 git bisect start , git bisect good , git bisect bad
 
+git stash push -m "your message" -> To save your local changes locally. 
+
+git stash list -> See the list of all local save changes in stash 
+
+git stash apply {@Stash{0}} -> To apply local save changes into your current branch
+
 Stash want to add -> push,pull method
